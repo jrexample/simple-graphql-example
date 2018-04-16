@@ -1,12 +1,12 @@
 # Simple GraphQL Example
 
-- Server
+### Server
   - Node.js (Express.js)
   - GraphQL
   - MongoDB (mLab)
   - Mongoose
 
-- Client
+### Client
   - React
  
-<a href="https://simple-graphql.herokuapp.com/grahpql">Demo</a>
+<a href="https://simple-graphql.herokuapp.com/graphql">Demo</a>
