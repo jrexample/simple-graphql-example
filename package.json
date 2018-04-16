@@ -1,0 +1,19 @@
+{
+  "name": "simple-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackyrusly/simple-graphql.git"
+  },
+  "author": "jrusly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackyrusly/simple-graphql/issues"
+  },
+  "homepage": "https://github.com/jackyrusly/simple-graphql#readme"
+}
