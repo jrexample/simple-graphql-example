@@ -9,6 +9,7 @@ const {
 const OrderDetailInputType = new GraphQLInputObjectType({
     name: 'OrderDetailInput',
     fields: {
+        id: { type: GraphQLID },
         quantity: { type: GraphQLInt },
         productId: { type: GraphQLID }
     },

@@ -14,13 +14,13 @@ const query = {
         args: { id: { type: GraphQLID } },
         resolve(parent, args) {
             return Order.findById(args.id);
-        }
+        },
     },
     orders: {
         type: new GraphQLList(OrderType),
         resolve(parent, args) {
             return Order.find({});
-        }
+        },
     },
 };
 
