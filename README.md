@@ -9,4 +9,4 @@
 ### Client
   - React
  
-<a href="https://simple-graphql.herokuapp.com/graphql">Demo</a>
+<a href="https://simple-graphql-example.herokuapp.com/graphql">Demo</a>
