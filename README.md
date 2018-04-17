@@ -12,4 +12,4 @@
   - React
 
 ### Collection Diagram
-![alt text](https://raw.githubusercontent.com/jackyrusly/simple-graphql-example/master/Collection%20Diagram.png)
+![alt text](https://raw.githubusercontent.com/jackyrusly/simple-graphql-example/master/schema.png)
