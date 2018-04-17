@@ -24,9 +24,9 @@ const mutation = {
 
             await order.save();
 
-            for (let detail of args.data.details) {
+            _.forEach(args.data.details, (detail) => {
                 detail.orderId = order._id;
-            }
+            });
 
             await OrderDetail.insertMany(args.data.details);
             return order;
@@ -47,7 +47,7 @@ const mutation = {
 
                 const tasks = [];
 
-                for (let doc of docs) {
+                _.forEach(docs, (doc) => {
                     let orderDetail = _.find(args.data.details, { id: doc.id.toString() });
 
                     if (orderDetail) {
@@ -57,12 +57,12 @@ const mutation = {
                     else {
                         tasks.push(OrderDetail.remove({ _id: doc.id }));
                     }
-                }
+                });
 
-                for (let newData of _.filter(args.data.details, (n) => !n.id)) {
+                _.forEach(_.filter(args.data.details, (n) => !n.id), (newData) => {
                     newData.orderId = args.id;
                     tasks.push(OrderDetail.create(newData));
-                }
+                });
 
                 await Promise.all(tasks);
 
