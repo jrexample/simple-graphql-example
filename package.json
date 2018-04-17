@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jackyrusly/simple-graphql.git"
+    "url": "git+https://github.com/jackyrusly/simple-graphql-example.git"
   },
   "author": "jrusly",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jackyrusly/simple-graphql/issues"
+    "url": "https://github.com/jackyrusly/simple-graphql-example/issues"
   },
-  "homepage": "https://github.com/jackyrusly/simple-graphql#readme"
+  "homepage": "https://github.com/jackyrusly/simple-graphq-examplel#readme"
 }
