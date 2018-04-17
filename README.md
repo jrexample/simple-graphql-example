@@ -11,5 +11,5 @@
 ### Client
   - React
 
-### Collection Diagram
+### Schema
 ![alt text](https://raw.githubusercontent.com/jackyrusly/simple-graphql-example/master/schema.png)
