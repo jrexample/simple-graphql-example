@@ -1,7 +1,8 @@
 # Simple GraphQL Example
 
-<a href="https://simple-graphql-example-client.herokuapp.com">Client Demo</a>
-<a href="https://simple-graphql-example-server.herokuapp.com/graphql">Server Demo</a>
+### Demo
+  - <a href="https://simple-graphql-example-client.herokuapp.com">Client Demo</a>
+  - <a href="https://simple-graphql-example-server.herokuapp.com/graphql">Server Demo</a>
 
 ### Server
   - Node.js (Express.js)
