@@ -3,7 +3,7 @@ import { compose, graphql } from 'react-apollo';
 import CustomerForm from './Form';
 import { createCustomerMutation } from '../../queries/customer';
 
-class Form extends Component {
+class Create extends Component {
     constructor(props) {
         super(props);
 
@@ -65,4 +65,4 @@ class Form extends Component {
 
 export default compose(
     graphql(createCustomerMutation, { name: 'createCustomerMutation' }),
-)(Form);
+)(Create);
