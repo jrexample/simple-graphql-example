@@ -1,6 +1,7 @@
 # Simple GraphQL Example
 
-<a href="https://simple-graphql-example.herokuapp.com/graphql">Demo</a>
+<a href="https://simple-graphql-example-client.herokuapp.com">Client Demo</a>
+<a href="https://simple-graphql-example-server.herokuapp.com/graphql">Server Demo</a>
 
 ### Server
   - Node.js (Express.js)
@@ -10,6 +11,7 @@
 
 ### Client
   - React
+  - Apollo
 
 ### Schema
 ![alt text](https://raw.githubusercontent.com/jackyrusly/simple-graphql-example/master/schema.png)
