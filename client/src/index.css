@@ -129,7 +129,7 @@ nav ul li.right { float: right; }
 }
 
 .spinner:not(:required):after {
-content: '';
+    content: '';
     position: absolute;
     left: 50%;
     top: 50%;
