@@ -22,13 +22,17 @@ const displayDetails = (details, products, deleteDetailClick, handleDetailChange
             return (
                 <tr key={index}>
                     <td>
-                        <select disabled={!products} onChange={handleDetailChange.bind(null, index, 'productId')} value={detail.productId} required>
-                            <option value="">-Choose Product-</option>
-                            {showProducts(products)}
-                        </select>
+                        <div className="form-field">
+                            <select disabled={!products} onChange={handleDetailChange.bind(null, index, 'productId')} value={detail.productId} required>
+                                <option value="">-Choose Product-</option>
+                                {showProducts(products)}
+                            </select>
+                        </div>
                     </td>
                     <td className="text-center">
-                        <input type="number" onChange={handleDetailChange.bind(null, index, 'quantity')} value={detail.quantity} min="1" required />
+                        <div className="form-field">
+                            <input type="number" onChange={handleDetailChange.bind(null, index, 'quantity')} value={detail.quantity} min="1" required />
+                        </div>
                     </td>
                     <td>
                         <button type="button" className="btn-delete" onClick={deleteDetailClick.bind(null, index)}>x</button>
