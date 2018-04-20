@@ -9,12 +9,12 @@ const CustomerForm = (props) => {
         <div>
             <form id="customer-form" onSubmit={handleSubmit}>
                 <div className="form-field">
-                    <label htmlFor="name">Name :</label>
+                    <label htmlFor="name">Name</label>
                     <input type="text" id="name" onChange={handleChange.bind(null, 'name')} value={customer.name} />
                 </div>
 
                 <div className="form-field">
-                    <label htmlFor="age">Age :</label>
+                    <label htmlFor="age">Age</label>
                     <input type="number" id="age" onChange={handleChange.bind(null, 'age')} value={customer.age} />
                 </div>
 

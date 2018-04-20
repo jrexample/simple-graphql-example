@@ -10,6 +10,7 @@ class Customer extends Component {
 
         return (
             <div>
+                <center><h1>Customer</h1></center>
                 <Switch>
                     <Route path={`${match.url}/list`} component={CustomerList} />
                     <Route path={`${match.url}/create`} component={CreateForm} />

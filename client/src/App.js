@@ -16,9 +16,8 @@ class App extends Component {
             <ApolloProvider client={client}>
                 <div>
                     <Navigation />
-
+                    
                     <div id="content">
-                        <center><h1>Simple GraphQL Example</h1></center>
                         <Switch>
                             <Route path='/customers' component={Customer} />
                             <Route path='/products' component={Product} />

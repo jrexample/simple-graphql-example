@@ -34,11 +34,6 @@ nav ul li a:hover:not(.active) { background-color: #47758c; }
 
 nav ul li.right { float: right; }
 
-@media screen and (max-width: 600px){
-    nav ul li.right, 
-    nav ul li { float: none; }
-}
-
 #content {
     margin: 20px;
 }
@@ -166,7 +161,7 @@ nav ul li.right { float: right; }
 
  /* Form */
 
- input[type=text], input[type=number] {
+ input[type=text], input[type=number], textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -178,4 +173,19 @@ nav ul li.right { float: right; }
 
 .form-field {
     margin: 5px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 600px) {
+    nav ul li.right, 
+    nav ul li { float: none; }
+
+    .card {
+        width: 100%;
+    }
 }
