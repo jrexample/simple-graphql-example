@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { compose, graphql } from 'react-apollo';
-import CustomerForm from './Form';
-import { createCustomerMutation } from '../../queries/customer';
+import { graphql } from 'react-apollo';
+import moment from 'moment';
+import OrderForm from './Form';
+import { createOrderMutation } from '../../queries/order';
 import { getCurrentUrl } from '../../utils/url-helper';
 
 class Create extends Component {
@@ -20,20 +21,21 @@ class Create extends Component {
         this.props.history.push(`${getCurrentUrl(this.props.match)}/list`);
     }
 
-    handleSubmit(customer, e) {
+    handleSubmit(order, e) {
         e.preventDefault();
         this.setState({ loading: true });
 
-        const data = customer;
-        
-        this.props.createCustomerMutation({
+        const data = order;
+        data.dateOrdered = moment(data.dateOrdered).format('YYYY-MM-DD');
+
+        this.props.createOrderMutation({
             variables: { data },
         }).then(response => this.handleBackClick());
     }
 
     render() {
         return (
-            <CustomerForm
+            <OrderForm
                 handleBackClick={this.handleBackClick}
                 handleSubmit={this.handleSubmit}
                 loading={this.state.loading} />
@@ -41,6 +43,4 @@ class Create extends Component {
     }
 }
 
-export default compose(
-    graphql(createCustomerMutation, { name: 'createCustomerMutation' }),
-)(Create);
+export default graphql(createOrderMutation, { name: 'createOrderMutation' })(Create);

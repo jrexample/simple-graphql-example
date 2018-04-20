@@ -17,12 +17,14 @@ const OrderDetailType = new GraphQLObjectType({
         return {
             id: { type: GraphQLID },
             quantity: { type: GraphQLInt },
+            orderId: { type: GraphQLID },
             order: {
                 type: OrderType,
                 resolve(parent, args) {
                     return Order.findById(parent.orderId);
                 },
             },
+            productId: { type: GraphQLID },
             product: {
                 type: ProductType,
                 resolve(parent, args) {

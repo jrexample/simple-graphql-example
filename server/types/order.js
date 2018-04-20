@@ -19,6 +19,7 @@ const OrderType = new GraphQLObjectType({
         return {
             id: { type: GraphQLID },
             dateOrdered: { type: GraphQLDate },
+            customerId: { type: GraphQLID },
             customer: {
                 type: CustomerType,
                 resolve(parent, args) {

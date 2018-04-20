@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { compose, graphql } from 'react-apollo';
 import ProductForm from './Form';
 import { createProductMutation } from '../../queries/product';
+import { getCurrentUrl } from '../../utils/url-helper';
 
 class Create extends Component {
     constructor(props) {
@@ -15,44 +16,32 @@ class Create extends Component {
                 description: '',
             },
             loading: false,
-            redirect: false,
         };
 
-        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleBackClick = this.handleBackClick.bind(this);
     }
 
-    handleChange(propName, e) {
-        let change = { product: this.state.product };
-        change.product[propName] = e.target.value;
-        this.setState(change);
-    }
-
     handleBackClick() {
-        this.setState({ redirect: true });
+        this.props.history.push(`${getCurrentUrl(this.props.match)}/list`);
     }
 
-    handleSubmit(e) {
+    handleSubmit(product, e) {
         e.preventDefault();
         this.setState({ loading: true });
 
-        const data = this.state.product;
+        const data = product;
 
         this.props.createProductMutation({
             variables: { data },
-        }).then(response => this.setState({ redirect: true }));
+        }).then(response => this.handleBackClick());
     }
 
     render() {
         return (
             <ProductForm
-                handleChange={this.handleChange}
                 handleBackClick={this.handleBackClick}
                 handleSubmit={this.handleSubmit}
-                match={this.props.match}
-                redirect={this.state.redirect}
-                product={this.state.product}
                 loading={this.state.loading} />
         );
     }

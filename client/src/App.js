@@ -5,9 +5,11 @@ import { ApolloProvider } from 'react-apollo';
 import Navigation from './components/Navigation';
 import Customer from './components/customer/Customer';
 import Product from './components/product/Product';
+import Order from './components/order/Order';
 
 const client = new ApolloClient({
-    uri: 'https://simple-graphql-example-server.herokuapp.com/graphql',
+    // uri: 'https://simple-graphql-example-server.herokuapp.com/graphql',
+    uri: 'http://localhost:4000/graphql',
 });
 
 class App extends Component {
@@ -21,6 +23,7 @@ class App extends Component {
                         <Switch>
                             <Route path='/customers' component={Customer} />
                             <Route path='/products' component={Product} />
+                            <Route path='/orders' component={Order} />
                         </Switch>
                     </div>
                 </div>

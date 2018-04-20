@@ -2,23 +2,16 @@ import React, { Component } from 'react';
 import { compose, graphql } from 'react-apollo';
 import ProductForm from './Form';
 import { getProductByIdQuery, updateProductMutation } from '../../queries/product';
+import { getCurrentUrl } from '../../utils/url-helper';
 
 class Edit extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            product: {
-                name: '',
-                quantity: 0,
-                price: 0,
-                description: '',
-            },
-            redirect: false,
             loading: false,
         };
 
-        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleBackClick = this.handleBackClick.bind(this);
     }
@@ -38,26 +31,21 @@ class Edit extends Component {
         }
     }
 
-    handleChange(propName, e) {
-        let change = { product: this.state.product };
-        change.product[propName] = e.target.value;
-        this.setState(change);
-    }
-
     handleBackClick() {
-        this.setState({ redirect: true });
+        const id = this.props.getProductByIdQuery.product.id;
+        this.props.history.push(`${getCurrentUrl(this.props.match)}/view/${id}`);
     }
 
-    handleSubmit(e) {
+    handleSubmit(product, e) {
         e.preventDefault();
         this.setState({ loading: true });
 
-        const data = this.state.product;
+        const data = product;
         const id = this.props.getProductByIdQuery.product.id;
 
         this.props.updateProductMutation({
             variables: { id, data },
-        }).then(response => this.setState({ redirect: true }));
+        }).then(response => this.handleBackClick());
     }
 
     displayForm() {
@@ -69,11 +57,8 @@ class Edit extends Component {
         else {
             return (
                 <ProductForm
-                    handleChange={this.handleChange}
                     handleBackClick={this.handleBackClick}
                     handleSubmit={this.handleSubmit}
-                    match={this.props.match}
-                    redirect={this.state.redirect}
                     product={this.state.product}
                     loading={this.state.loading} />
             );

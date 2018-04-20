@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { compose, graphql } from 'react-apollo';
-import CustomerForm from './Form';
-import { getCustomerByIdQuery, updateCustomerMutation } from '../../queries/customer';
+import moment from 'moment';
+import OrderForm from './Form';
+import { getOrderByIdQuery, updateOrderMutation } from '../../queries/order';
 import { getCurrentUrl } from '../../utils/url-helper';
 
 class Edit extends Component {
@@ -17,46 +18,49 @@ class Edit extends Component {
     }
 
     componentWillReceiveProps(props) {
-        if (props.getCustomerByIdQuery.loading === false) {
-            let { customer } = props.getCustomerByIdQuery;
+        if (props.getOrderByIdQuery.loading === false) {
+            let { order } = props.getOrderByIdQuery;
 
             this.setState({
-                customer: {
-                    name: customer.name,
-                    age: customer.age,
+                order: {
+                    dateOrdered: order.dateOrdered,
+                    customerId: order.customerId,
+                    details: order.details,
                 },
             });
         }
     }
 
     handleBackClick() {
-        this.props.history.push(`${getCurrentUrl(this.props.match)}/list`);
+        const id = this.props.getOrderByIdQuery.order.id;
+        this.props.history.push(`${getCurrentUrl(this.props.match)}/view/${id}`);
     }
 
-    handleSubmit(customer, e) {
+    handleSubmit(order, e) {
         e.preventDefault();
         this.setState({ loading: true });
 
-        const data = customer;
-        const id = this.props.getCustomerByIdQuery.customer.id;
+        const data = order;
+        const id = this.props.getOrderByIdQuery.order.id;
+        data.dateOrdered = moment(data.dateOrdered).format('YYYY-MM-DD');
 
-        this.props.updateCustomerMutation({
+        this.props.updateOrderMutation({
             variables: { id, data },
         }).then(response => this.handleBackClick());
     }
 
     displayForm() {
-        let data = this.props.getCustomerByIdQuery;
+        let data = this.props.getOrderByIdQuery;
 
         if (data.loading) {
             return (<div className="spinner" />);
         }
         else {
             return (
-                <CustomerForm
+                <OrderForm
                     handleBackClick={this.handleBackClick}
                     handleSubmit={this.handleSubmit}
-                    customer={this.state.customer}
+                    order={this.state.order}
                     loading={this.state.loading} />
             );
         }
@@ -72,9 +76,9 @@ class Edit extends Component {
 }
 
 export default compose(
-    graphql(getCustomerByIdQuery, {
+    graphql(getOrderByIdQuery, {
         options: (props) => ({ variables: { id: props.match.params.id }, fetchPolicy: 'network-only' }),
-        name: 'getCustomerByIdQuery',
+        name: 'getOrderByIdQuery',
     }),
-    graphql(updateCustomerMutation, { name: 'updateCustomerMutation' }),
+    graphql(updateOrderMutation, { name: 'updateOrderMutation' }),
 )(Edit);

@@ -11,7 +11,8 @@ const OrderDetailInputType = new GraphQLInputObjectType({
     fields: {
         id: { type: GraphQLID },
         quantity: { type: GraphQLInt },
-        productId: { type: GraphQLID }
+        orderId: { type: GraphQLID },
+        productId: { type: GraphQLID },
     },
 });
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { compose, graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import { getCustomersQuery, deleteCustomerMutation } from '../../queries/customer';
+import { getCurrentUrl } from '../../utils/url-helper';
 
 const CustomerCard = (props) => {
     const { customer, deleteCustomer, url } = props;
@@ -46,13 +47,15 @@ class List extends Component {
         }
     }
 
-    displayCustomers(url) {
+    displayCustomers() {     
         let data = this.props.getCustomersQuery;
 
         if (data.loading || this.state.loading) {
             return (<div className="spinner"></div>);
         }
         else {
+            const url = getCurrentUrl(this.props.match);
+
             return data.customers.map(customer => {
                 return (
                     <CustomerCard key={customer.id} customer={customer} deleteCustomer={this.deleteCustomer} url={url} />
@@ -62,16 +65,13 @@ class List extends Component {
     }
 
     render() {
-        const { match } = this.props;
-        const url = `${match.url.substring(0, match.url.lastIndexOf('/'))}`;
-
         return (
             <div>
                 <div className="action-container">
-                    <Link to={`${url}/create`} className="button">Add Customer</Link>
+                    <Link to={`${getCurrentUrl(this.props.match)}/create`} className="button">Add Customer</Link>
                 </div>
                 <div className="list">
-                    {this.displayCustomers(url)}
+                    {this.displayCustomers()}
                 </div>
             </div>
         );
