@@ -25,18 +25,27 @@ const mutation = {
         type: GraphQLBoolean,
         args: { id: { type: GraphQLID }, data: { type: ProductInputType } },
         resolve(parent, args) {
-            return Product.update({ _id: args.id }, args.data);
+            return new Promise((resolve, reject) => {
+                Product.update({ _id: args.id }, args.data, (error) => {
+                    if (error)
+                        resolve(false);
+
+                    resolve(true);
+                });
+            });
         },
     },
     deleteProduct: {
         type: GraphQLBoolean,
         args: { id: { type: GraphQLID } },
         resolve(parent, args) {
-            return Product.remove({ _id: args.id }, (error) => {
-                if (error)
-                    return false;
+            return new Promise((resolve, reject) => {
+                Product.remove({ _id: args.id }, (error) => {
+                    if (error)
+                        resolve(false);
 
-                return true;
+                    resolve(true);
+                });
             });
         },
     },
