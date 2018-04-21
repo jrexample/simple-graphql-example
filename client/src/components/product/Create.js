@@ -9,12 +9,6 @@ class Create extends Component {
         super(props);
 
         this.state = {
-            product: {
-                name: '',
-                quantity: 0,
-                price: 0,
-                description: '',
-            },
             loading: false,
         };
 
