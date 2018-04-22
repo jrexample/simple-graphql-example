@@ -3,7 +3,7 @@ const graphql = require('graphql');
 const {
     GraphQLObjectType,
     GraphQLID,
-    GraphQLList
+    GraphQLList,
 } = graphql;
 
 const { GraphQLDate } = require('graphql-iso-date');
