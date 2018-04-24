@@ -4,13 +4,13 @@
   - <a href="https://simple-graphql-example-server.herokuapp.com/graphql">Server Demo</a>
   - <a href="https://simple-graphql-example-client.herokuapp.com">Client Demo</a>
   
-### Server
+### Server [![CircleCI](https://circleci.com/gh/jackyrusly/graphql-test-example/tree/master.svg?style=svg)](https://circleci.com/gh/jackyrusly/graphql-test-example/tree/master) [![Coverage Status](https://coveralls.io/repos/github/jackyrusly/graphql-test-example/badge.svg?branch=master)](https://coveralls.io/github/jackyrusly/graphql-test-example?branch=master)
   - Node.js (Express.js)
   - GraphQL
   - MongoDB (mLab)
   - Mongoose
 
-### Client
+### Client [![CircleCI](https://circleci.com/gh/jackyrusly/simple-nightwatch-example/tree/master.svg?style=svg)](https://circleci.com/gh/jackyrusly/simple-nightwatch-example/tree/master)
   - React
   - Apollo
 
