@@ -15,7 +15,7 @@
   - Apollo
 
 ## Schema
-![alt text](https://raw.githubusercontent.com/jackyrusly/simple-graphql-example/master/schema.png)
+![Schema](https://raw.githubusercontent.com/jackyrusly/simple-graphql-example/master/schema.png)
 
 ## Author
 [Jacky Rusly](https://www.jackyrusly.web.id)
