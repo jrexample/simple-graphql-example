@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 4000;
 
-mongoose.connect('mongodb+srv://jr:jr@cluster0.ztzu7.mongodb.net/jr?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://jr:YgQft9RRKaALEyre@cluster0.ztzu7.mongodb.net/gql?retryWrites=true&w=majority');
 mongoose.connection.once('open', () => {
     console.log('Connected to mLab');
 });
